@@ -7,11 +7,24 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-@media only screen and (max-width: 374px) {
+@media only screen and (max-width: 100px) {
   html {
-    font-size: 50px;
+    font-size: 8px;
   }
 }
+
+@media only screen and (min-width: 101px) and (max-width: 199px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (min-width: 200px) and (max-width: 374px) {
+  html {
+    font-size: 30px;
+  }
+}
+
 @media only screen and (min-width: 375px) and (max-width: 413px) {
   html {
     font-size: 55px;
@@ -34,8 +47,20 @@ body {
     font-size: 130px;
   }
 }
-@media only screen and (min-width: 1201px) {
+
+@media only screen and (min-width: 1201px) and (max-width: 1800px) {
   html {
     font-size: 170px;
+  }
+}
+
+@media only screen and (min-width: 1801px) and (max-width: 2118px) {
+  html {
+    font-size: 220px;
+  }
+}
+@media only screen and (min-width: 2119px) {
+  html {
+    font-size: 260px;
   }
 }
