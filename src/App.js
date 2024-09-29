@@ -7,41 +7,50 @@
  * @Description: 活动列表页
  */
 import './App.css';
-import { useState, useEffect, } from 'react';
-import { handDodatas } from './helper';
-import Countdown from "react-countdown";
+// import { useState, useEffect, } from 'react';
+// import { handDodatas } from './helper';
+// import Countdown from "react-countdown";
 
 
-const reqUrl = 'https://systemjs.1688.com/krump/schema/1352.json';
+// const reqUrl = 'https://systemjs.1688.com/krump/schema/1352.json';
+
+import React from 'react';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
+import LoginForm from './page/Login/index';
+import RegisterForm from './page/Register/index';
 
 
 function App() {
-  // 列表数据  
-  const [conList, setConList] = useState([]);
+  // // 列表数据  
+  // const [conList, setConList] = useState([]);
 
 
-  useEffect(() => {
-    handList();
-  }, []);
+  // useEffect(() => {
+  //   handList();
+  // }, []);
 
-  /**
-   * @description: 获取活动列表
-   * @return {void}
-   */
-  const handList = () => {
-    fetch(reqUrl).then(res => {
-      return res.json();
-    }).then(data => {
-      const { list } = data;
-      setConList(handDodatas(list));
-    }).catch(e => {
-      console.log(e);
-    });
-  }
+  // /**
+  //  * @description: 获取活动列表
+  //  * @return {void}
+  //  */
+  // const handList = () => {
+  //   fetch(reqUrl).then(res => {
+  //     return res.json();
+  //   }).then(data => {
+  //     const { list } = data;
+  //     setConList(handDodatas(list));
+  //   }).catch(e => {
+  //     console.log(e);
+  //   });
+  // }
 
   return (
     <div className="App">
-      {
+      {/* {
         conList.map((item, index) => {
           return <div key={index + 1} className='Itemli'>
             <div className='Mon'><span className='Tex'>{item.money}</span>元</div>
@@ -62,7 +71,14 @@ function App() {
             <div className='Btn'>{item.status}</div>
           </div>
         })
-      }
+      } */}
+      {/* 登录注册 */}
+      <Router>
+        <Routes>
+          <Route path="/register" element={<RegisterForm />} />
+          <Route path="/" element={<LoginForm />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
